@@ -63,6 +63,7 @@ Model Pretrain
                      --total_steps 90000 --save_checkpoint_steps 10000 --batch_size 64 \
                      --embedding word_pos_seg --encoder transformer --mask fully_visible --target bertflow
 ```
+Pretrain model: https://drive.google.com/file/d/1pR6ZaWE7MWFDQWiF4LDzSyjSq0Gj3kV7/view?usp=sharing
 ## Finetuning Data Generation
 The codes are in data_generation/finetuning_data_gen.py
 

@@ -1,5 +1,6 @@
 import os,random,json,csv
 import ipaddress,pickle
+from pathlib import Path
 
 # generate random ipv4 address
 def random_ipv4():
@@ -31,20 +32,14 @@ def convert_pcapng_2_pcap(pcapng_path, pcapng_file, output_path):
 def split_cap(pcap_split_path, pcap_file_path, pcap_name, pcap_label='', split_way = 'bidirection'):
     # pcap_split_path + "splitcap/" + pcap_label + "/" + pcap_name is output
     # pcap_file_path+pcap_name is input
-    if not os.path.exists(pcap_split_path + "/splitcap"):
-        os.mkdir(pcap_split_path + "/splitcap")
     if pcap_label != '':
-        if not os.path.exists(pcap_split_path + "splitcap/" + pcap_label):
-            os.mkdir(pcap_split_path + "splitcap/" + pcap_label)
-        # if not os.path.exists(pcap_split_path + "splitcap/" + pcap_label + "/" + pcap_name):
-        #     os.mkdir(pcap_split_path + "splitcap/" + pcap_label + "/" + pcap_name)
-        output_path = pcap_split_path + "splitcap/" + pcap_label #+ "/" + pcap_name
+        output_path = Path(pcap_split_path, pcap_label)
     else:
-        if not os.path.exists(pcap_split_path + "splitcap/" + pcap_name):
-            os.mkdir(pcap_split_path + "splitcap/" + pcap_name)
-        output_path = pcap_split_path + "splitcap/" + pcap_name
+        output_path = Path(pcap_split_path, pcap_name)
+    if not output_path.exists():
+        output_path.mkdir(parents=True, exist_ok=True)
+        
     split_way = "session" if split_way=='bidirection' else "flow"
-    print(pcap_file_path+pcap_name,output_path)
     cmd = f"mono ./SplitCap.exe -r {pcap_file_path+pcap_name} -s {split_way} -o {output_path}"
     #print(cmd)
     os.system(cmd)

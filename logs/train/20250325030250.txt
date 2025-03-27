@@ -1,0 +1,4 @@
+  File "/home/changc/TrafficFormer/data_generation/finetuning_data_gen.py", line 23
+    from path
+             ^
+SyntaxError: invalid syntax

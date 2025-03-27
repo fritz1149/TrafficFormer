@@ -1,0 +1,22 @@
+label number:  5
+shareLocationOnce 0
+sendAudio 1
+sendText 2
+transferFile 3
+sendImage 4
+
+Begin to generate features.
+  0%|          | 0/5 [00:00<?, ?it/s]generate features:   0%|          | 0/5 [00:00<?, ?it/s]
+  0%|          | 0/5 [00:00<?, ?it/s][A100%|██████████| 5/5 [00:00<00:00, 585.49it/s]
+generate features:   0%|          | 0/5 [00:00<?, ?it/s]
+len of target_all_files of ../../traffic_split/qqshareLocationOnce: 0
+len of r_files: 0
+len of target_all_files of ../../traffic_split/qqsendAudio: 0
+len of r_files: 0
+len of target_all_files of ../../traffic_split/qqsendText: 0
+len of r_files: 0
+len of target_all_files of ../../traffic_split/qqtransferFile: 0
+len of r_files: 0
+len of target_all_files of ../../traffic_split/qqsendImage: 0
+len of r_files: 0
+all	0
